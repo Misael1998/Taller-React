@@ -20,9 +20,15 @@ class PostForm extends Component {
     const { Nombre, Post } = this.state;
     e.preventDefault();
     if (Nombre !== "" && Post !== "") {
-      console.log(this.state);
-    } else {
-      console.log("nada");
+      let post = {
+        Nombre: Nombre,
+        Post: Post
+      };
+      this.props.handlePost(post);
+      this.setState({
+        Nombre: "",
+        Post: ""
+      });
     }
   }
 
@@ -50,6 +56,7 @@ class PostForm extends Component {
                   placeholder="Post"
                   id="textarea2"
                   name="Post"
+                  value={Post}
                   className="materialize-textarea"
                 ></textarea>
               </div>

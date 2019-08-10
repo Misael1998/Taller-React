@@ -4,15 +4,10 @@ import Post from "./Post";
 
 class Posts extends Component {
   render() {
-    const post = [
-      { Nombre: "Juan", Post: "perez" },
-      { Nombre: "Pedro", Post: "solapo" },
-      { Nombre: "Mario", Post: "antunez" },
-      { Nombre: "Carlos", Post: "silmido" }
-    ];
+    const post = this.props.Posts;
 
     const posts = post.map(info => (
-      <div className="col s6">
+      <div className="col s6" key={info.Nombre}>
         <Post Nombre={info.Nombre} Post={info.Post}></Post>
       </div>
     ));
